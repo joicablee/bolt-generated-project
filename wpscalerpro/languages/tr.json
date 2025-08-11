@@ -1,7 +1,8 @@
 {
-  "plugin_name": "WPScaler Pro",
+  "language_name": "Türkçe",
+  "plugin_name": "WpscalerPro",
   "api_key": "API Anahtarı",
-  "api_key_desc": "SaaS API anahtarınızı buraya girin.",
+  "api_key_desc": "WpscalerPro API anahtarınızı girin.",
   "language": "Dil",
   "language_desc": "Yönetici paneli için dili seçin.",
   "save": "Kaydet",
