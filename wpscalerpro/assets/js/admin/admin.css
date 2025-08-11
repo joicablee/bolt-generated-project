@@ -1,0 +1,65 @@
+.wpsp-admin-wrap {
+  background: #fff;
+  padding: 32px 24px;
+  max-width: 480px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  font-family: 'Inter', Arial, sans-serif;
+}
+.wpsp-admin-wrap h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1a202c;
+}
+.wpsp-form-row {
+  margin-bottom: 1.5rem;
+}
+.wpsp-form-row label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.wpsp-form-row input,
+.wpsp-form-row select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8fafc;
+  margin-bottom: 0.25rem;
+}
+.wpsp-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+.wpsp-btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.wpsp-btn-primary:hover {
+  background: #1d4ed8;
+}
+.wpsp-message {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.wpsp-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}

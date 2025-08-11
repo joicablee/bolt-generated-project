@@ -1,8 +1,7 @@
 {
-  "language_name": "English",
-  "plugin_name": "WpscalerPro",
+  "plugin_name": "WPScaler Pro",
   "api_key": "API Key",
-  "api_key_desc": "Enter your WpscalerPro API key.",
+  "api_key_desc": "Enter your SaaS API key here.",
   "language": "Language",
   "language_desc": "Select the language for the admin panel.",
   "save": "Save",
