@@ -1,8 +1,10 @@
 {
-  "WpscalerPro": "WpscalerPro",
-  "AI Content": "Yapay Zeka İçerik",
-  "Optimize": "Optimize Et",
-  "Settings": "Ayarlar",
-  "Save": "Kaydet",
-  "Cancel": "İptal"
+  "language_name": "Türkçe",
+  "plugin_name": "WpscalerPro",
+  "api_key": "API Anahtarı",
+  "api_key_desc": "WpscalerPro API anahtarınızı girin.",
+  "language": "Dil",
+  "language_desc": "Yönetici paneli için dili seçin.",
+  "save": "Kaydet",
+  "settings_saved": "Ayarlar başarıyla kaydedildi."
 }

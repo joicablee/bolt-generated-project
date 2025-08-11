@@ -1,41 +1,17 @@
 <?php
-class WPSP_Admin {
-  public function __construct() {
-    add_action('admin_menu', [$this, 'add_menu']);
-    add_action('admin_enqueue_scripts', [$this, 'enqueue_assets']);
-  }
+// Admin panel loader - i18n helper dahil
+require_once __DIR__ . '/../i18n.php';
+require_once __DIR__ . '/ApiKey.php';
 
-  public function add_menu() {
-    add_menu_page(
-      __('WpscalerPro', 'wpscalerpro'),
-      __('WpscalerPro', 'wpscalerpro'),
-      'manage_options',
-      'wpscalerpro',
-      [$this, 'render_app'],
-      'dashicons-admin-generic'
-    );
-  }
-
-  public function enqueue_assets($hook) {
-    if ($hook !== 'toplevel_page_wpscalerpro') return;
-    wp_enqueue_script(
-      'wpsp-admin-app',
-      plugins_url('../../assets/js/admin/main.js', __FILE__),
-      ['wp-element'],
-      WPSP_VERSION,
-      true
-    );
-    wp_enqueue_style(
-      'wpsp-admin-style',
-      plugins_url('../../assets/css/admin.css', __FILE__),
-      [],
-      WPSP_VERSION
-    );
-  }
-
-  public function render_app() {
-    echo '<div id="wpsp-admin-root"></div>';
-  }
+// Burada admin panel başlık ve açıklama metinleri i18n ile alınabilir
+function wpsp_admin_panel_title($locale = null) {
+  return wpsp_t('api_key_management', $locale);
+}
+function wpsp_admin_panel_subtitle($locale = null) {
+  return wpsp_t('api_key_management_subtitle', $locale);
 }
 
-new WPSP_Admin();
+// Ek örnek: Admin panelinde başka bir statik metin gerekiyorsa i18n ile alınmalı
+function wpsp_admin_panel_info($locale = null) {
+  return wpsp_t('admin_panel_info', $locale);
+}

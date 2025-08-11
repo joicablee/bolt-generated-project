@@ -1,9 +1,10 @@
-// Entry point for React admin app (bundled by Vite)
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import App from "./App.jsx";
+import "../css/admin.css";
 
-const root = document.getElementById("wpsp-admin-root");
-if (root) {
-  createRoot(root).render(<App />);
+const container = document.getElementById("wpsp-admin-root");
+if (container) {
+  const root = createRoot(container);
+  root.render(<App />);
 }

@@ -1,25 +1,40 @@
 <?php
 namespace WpscalerPro\Admin;
 
-class ApiKey {
-  const OPTION = 'wpscalerpro_api_key';
+require_once __DIR__ . '/../i18n.php';
 
-  public static function get() {
-    return get_option(self::OPTION, '');
+class ApiKey
+{
+  public static function save($key, $locale = null)
+  {
+    // Simülasyon: Gerçek kaydetme işlemi burada yapılacak
+    if ($key === 'fail') {
+      return [
+        'success' => false,
+        'message' => wpsp_t('api_key_save_error', $locale)
+      ];
+    }
+    // Başarı
+    return [
+      'success' => true,
+      'message' => wpsp_t('api_key_saved', $locale)
+    ];
   }
 
-  public static function save($key) {
-    return update_option(self::OPTION, $key, false);
-  }
-
-  public static function delete() {
-    return delete_option(self::OPTION);
-  }
-
-  public static function mask($key) {
-    if (!$key) return '';
-    $len = strlen($key);
-    if ($len <= 8) return str_repeat('*', $len);
-    return substr($key, 0, 4) . str_repeat('*', $len - 8) . substr($key, -4);
+  public static function remove($locale = null)
+  {
+    // Simülasyon: Gerçek silme işlemi burada yapılacak
+    $success = true;
+    if ($success) {
+      return [
+        'success' => true,
+        'message' => wpsp_t('api_key_removed', $locale)
+      ];
+    } else {
+      return [
+        'success' => false,
+        'message' => wpsp_t('api_key_remove_error', $locale)
+      ];
+    }
   }
 }

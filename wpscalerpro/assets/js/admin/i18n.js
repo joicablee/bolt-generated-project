@@ -1,12 +1,28 @@
-import tr from '../../../languages/tr.json';
-import en from '../../../languages/en.json';
+let currentLocale = "en";
+let translations = {};
 
-const locales = { tr, en };
-
-export function t(key, locale = 'tr') {
-  return locales[locale]?.[key] || key;
+export function setLocale(locale) {
+  currentLocale = locale;
 }
 
-export function getAvailableLocales() {
-  return Object.keys(locales);
+export function getLocale() {
+  return currentLocale;
+}
+
+export async function fetchLocales() {
+  const res = await fetch("/wp-json/wpscalerpro/v1/locales");
+  return res.json();
+}
+
+export async function loadTranslations(locale) {
+  try {
+    const res = await fetch(`/wp-content/plugins/wpscalerpro/languages/${locale}.json`);
+    translations = await res.json();
+  } catch (e) {
+    translations = {};
+  }
+}
+
+export function t(key) {
+  return translations[key] || key;
 }

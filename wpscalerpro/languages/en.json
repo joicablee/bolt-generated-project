@@ -1,8 +1,10 @@
 {
-  "WpscalerPro": "WpscalerPro",
-  "AI Content": "AI Content",
-  "Optimize": "Optimize",
-  "Settings": "Settings",
-  "Save": "Save",
-  "Cancel": "Cancel"
+  "language_name": "English",
+  "plugin_name": "WpscalerPro",
+  "api_key": "API Key",
+  "api_key_desc": "Enter your WpscalerPro API key.",
+  "language": "Language",
+  "language_desc": "Select the language for the admin panel.",
+  "save": "Save",
+  "settings_saved": "Settings saved successfully."
 }
