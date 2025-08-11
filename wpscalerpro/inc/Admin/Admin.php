@@ -1,35 +1,41 @@
 <?php
-namespace WpscalerPro\Admin;
-
-require_once __DIR__ . '/../i18n.php';
-
-class Admin {
-  public static function init() {
-    add_action('admin_menu', [self::class, 'add_menu']);
+class WPSP_Admin {
+  public function __construct() {
+    add_action('admin_menu', [$this, 'add_menu']);
+    add_action('admin_enqueue_scripts', [$this, 'enqueue_assets']);
   }
 
-  public static function add_menu() {
-    $locale = wpsp_get_locale();
+  public function add_menu() {
     add_menu_page(
-      wpsp_t('api_key_management', $locale),
-      'WpscalerPro',
+      __('WpscalerPro', 'wpscalerpro'),
+      __('WpscalerPro', 'wpscalerpro'),
       'manage_options',
       'wpscalerpro',
-      [self::class, 'render_page'],
-      'dashicons-shield-alt'
+      [$this, 'render_app'],
+      'dashicons-admin-generic'
     );
   }
 
-  public static function render_page() {
-    $locale = wpsp_get_locale();
-    ?>
-    <div class="wrap">
-      <h1><?php echo esc_html(wpsp_t('api_key_management', $locale)); ?></h1>
-      <p><?php echo esc_html(wpsp_t('api_key_management_subtitle', $locale)); ?></p>
-      <div id="wpscalerpro-admin-root"></div>
-    </div>
-    <?php
+  public function enqueue_assets($hook) {
+    if ($hook !== 'toplevel_page_wpscalerpro') return;
+    wp_enqueue_script(
+      'wpsp-admin-app',
+      plugins_url('../../assets/js/admin/main.js', __FILE__),
+      ['wp-element'],
+      WPSP_VERSION,
+      true
+    );
+    wp_enqueue_style(
+      'wpsp-admin-style',
+      plugins_url('../../assets/css/admin.css', __FILE__),
+      [],
+      WPSP_VERSION
+    );
+  }
+
+  public function render_app() {
+    echo '<div id="wpsp-admin-root"></div>';
   }
 }
 
-add_action('admin_init', ['WpscalerPro\Admin\Admin', 'init']);
+new WPSP_Admin();

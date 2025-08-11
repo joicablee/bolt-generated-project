@@ -1,9 +1,16 @@
 <?php
-// Plugin loader: loads all modules
+// Otomatik class yükleyici ve temel bootstrap
+spl_autoload_register(function($class) {
+  $prefix = 'WPSP_';
+  $base_dir = __DIR__ . '/';
+  if (strpos($class, $prefix) === 0) {
+    $file = $base_dir . str_replace('_', '/', substr($class, strlen($prefix))) . '.php';
+    if (file_exists($file)) require $file;
+  }
+});
 
-require_once __DIR__ . '/i18n.php';
-require_once __DIR__ . '/Admin/ApiKey.php';
+// Temel admin ve API endpointlerini yükle
+if (is_admin()) {
+  require_once __DIR__ . '/Admin/Admin.php';
+}
 require_once __DIR__ . '/Api/Rest.php';
-require_once __DIR__ . '/Admin/Admin.php';
-
-add_action('rest_api_init', ['WpscalerPro\Api\Rest', 'register_routes']);
